@@ -25,9 +25,9 @@ free pinning plan allows 500 files in total and the watchdog writes about 200 a 
 
 ## Known gaps
 
-The documents of batches 27 and 28 (committed on 2026-09-27 at blocks 73,722,772 and 73,792,926)
-were lost when the pinning service stopped accepting files: the scanner fell back to its own disk,
-which does not outlive a run. Their roots are on chain; their contents cannot be opened.
+The documents of batches 27, 28 and 29 (committed on 2026-09-27 at blocks 73,722,772, 73,792,926
+and 73,863,382) were lost when the pinning service stopped accepting files: the scanner fell back
+to its own disk, which does not outlive a run. Their roots are on chain; their contents cannot be opened.
 
 ## Copying the record
 
