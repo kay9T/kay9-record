@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>KAY9 record</title>
+<meta name="description" content="Every scan batch document and scan report the KAY9 watchdog has committed on Robinhood Chain, byte for byte.">
+<style>
+  :root {
+    --ink: #16181c;
+    --ink-2: #55606c;
+    --line: #dde2e7;
+    --surface: #ffffff;
+    --bg: #f7f8fa;
+    --brass: #9a6b2f;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --ink: #eef1f4;
+      --ink-2: #a9b3bd;
+      --line: #2a2f36;
+      --surface: #14171b;
+      --bg: #0b0d0f;
+    }
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  body {
+    background: var(--bg);
+    color: var(--ink);
+    font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    line-height: 1.55;
+  }
+  main {
+    max-width: 640px;
+    margin: 0 auto;
+    padding: 48px 20px 80px;
+  }
+  h1 {
+    font-size: 1.6rem;
+    margin: 0 0 4px;
+  }
+  .tag {
+    color: var(--ink-2);
+    font-size: 0.95rem;
+    margin: 0 0 32px;
+  }
+  p { margin: 0 0 16px; }
+  a { color: var(--brass); text-decoration: underline; text-underline-offset: 2px; }
+  a:hover { opacity: 0.8; }
+  code {
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: 4px;
+    padding: 1px 5px;
+    font-size: 0.9em;
+  }
+  .card {
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    padding: 18px 20px;
+    margin: 0 0 14px;
+  }
+  .card h2 {
+    font-size: 1rem;
+    margin: 0 0 6px;
+  }
+  .card p { margin: 0; color: var(--ink-2); font-size: 0.95rem; }
+  ul { padding-left: 20px; margin: 0 0 16px; }
+  li { margin: 0 0 6px; }
+  footer {
+    margin-top: 40px;
+    padding-top: 20px;
+    border-top: 1px solid var(--line);
+    color: var(--ink-2);
+    font-size: 0.85rem;
+  }
+  footer a { color: inherit; }
+</style>
+</head>
+<body>
+<main>
+  <h1>KAY9 record</h1>
+  <p class="tag">Every scan batch document and scan report the KAY9 watchdog has committed on Robinhood Chain (chain id 4663), byte for byte.</p>
+
+  <p>Nothing here needs to be trusted. Each file is checked against a value already on chain:</p>
+  <ul>
+    <li><code>batches/&lt;root&gt;.json</code> — a scan batch document. <code>root</code> is the Merkle root <a href="https://robinhoodchain.blockscout.com/address/0x79778723c021386F3C7727289A30716edaa635A1">KAY9ScanRegistry</a> recorded in <code>commitScanBatch</code>. Rebuild the tree from the document's entries and compare it with the root on chain.</li>
+    <li><code>reports/&lt;reportHash&gt;.json</code> — a full scan report. Its keccak256 is <code>reportHash</code>, the value the batch entry commits to.</li>
+  </ul>
+  <p>A file that fails either check is not part of the record, wherever it came from.</p>
+
+  <div class="card">
+    <h2>Browse the files</h2>
+    <p><a href="https://github.com/kay9T/kay9-record">github.com/kay9T/kay9-record</a> — <code>batches/</code>, <code>reports/</code>, and <code>ipfs-mirror.json</code> for the documents pinned on IPFS before 2026-09-27.</p>
+  </div>
+
+  <div class="card">
+    <h2>Rebuild the record yourself</h2>
+    <p>The procedure and the tool are in <a href="https://github.com/kay9T/kay9-protocol/blob/main/docs/REBUILD_THE_RECORD.md">docs/REBUILD_THE_RECORD.md</a> on the main protocol repository. It reads only the chain and the files here.</p>
+  </div>
+
+  <div class="card">
+    <h2>Known gaps</h2>
+    <p>The documents of batches 27, 28 and 29 (2026-09-27) were lost when the free IPFS pinning plan filled up before this repository took over. Their roots are on chain; their contents cannot be opened. Every batch from 27 onward is committed here directly.</p>
+  </div>
+
+  <footer>
+    <p>Read from and written to by the KAY9 watchdog. See <a href="https://kay9.io">kay9.io</a> for the live feed and token pages, or <a href="https://github.com/kay9T/kay9-record/blob/main/README.md">the full README</a> for how the files came to be here.</p>
+  </footer>
+</main>
+</body>
+</html>
